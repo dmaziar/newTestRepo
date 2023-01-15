@@ -24,7 +24,8 @@ test('has title', async ({ page }) => {
     settings: { custom_css: '#main h1{font-size: 100px}' }
     });`
     // await $e.run( 'document/save/default' );
-    //page.evaluate(updateScript);
+  await page.evaluate(updateScript=>updateScript);
   await page.goto(homePage);
+  await expect(page).toHaveScreenshot('has-title-1-chromium-darwin.png');
 });
 
